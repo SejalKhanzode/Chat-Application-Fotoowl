@@ -3,19 +3,22 @@ import React from "react";
 import { useMessages } from "../../../context/MessageContext"; // Adjust the path
 
 type Message = {
-  id: string;
-  text: string;
-  timestamp: number;
-  userId: string;
-};
+    id?: string;
+    text: string;
+    timestamp: number;
+    userId: string;
+  };
 
 type MessageListProps = {
+  messages: Message[];
   selectedContactId: string;
 };
 
-const MessageList: React.FC<MessageListProps> = ({ selectedContactId }) => {
-  const { messages } = useMessages();
+const MessageList: React.FC<MessageListProps> = ({ messages = [] ,selectedContactId }) => {
+//   const { messages } = useMessages();
 
+  console.log("messages>>", messages);
+  
   // Filter messages sent to the selected contact
   const filteredMessages = messages.filter((message) => message.userId === selectedContactId);
 

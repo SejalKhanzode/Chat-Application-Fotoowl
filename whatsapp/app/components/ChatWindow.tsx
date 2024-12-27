@@ -10,7 +10,7 @@ import { BsEmojiSmile } from "react-icons/bs";
 import { FiPaperclip } from "react-icons/fi";
 import db from "../../instantDB";
 
-type Message = {
+type Messages = {
     id?: string;
     text: string;
     timestamp: number;
@@ -21,8 +21,8 @@ type Message = {
 const ChatWindow = ({selectedContact }) => {
   const { sendMessage } = useMessages();
   const [message, setMessage] = useState("");
-  const [messages, setMessages] = useState<Message[]>([]);
-  
+//   const [messages, setMessages] = useState<Message[]>([]);
+const [messages, setMessages] = useState([]);
  
   
   const handleSendMessage = async (e) => {
@@ -65,7 +65,7 @@ const ChatWindow = ({selectedContact }) => {
       </div>
 
       {/* Chat Area */}
-      <MessageList selectedContactId={selectedContact.id} />
+      <MessageList messages={messages} selectedContactId={selectedContact.id} />
 
       {/* Text Input Area */}
       <div className="absolute inset-x-0 bottom-0 p-4 border-t border-gray-300 ">
