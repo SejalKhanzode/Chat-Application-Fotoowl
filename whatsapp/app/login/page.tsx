@@ -4,6 +4,8 @@ import { useState } from "react";
 import { id, i, init, InstaQLEntity } from "@instantdb/react";
 import { useRouter } from "next/navigation"; // Import useRouter for navigation
 import { useAuth } from "../../context/AuthContext";
+import Image from "next/image";
+import logo from "../assets/logo.png"
 
 // ID for app: ChatApplication
 const APP_ID = "0c0593fa-1d63-4df3-b7b0-5049b2a027dc";
@@ -54,8 +56,12 @@ export default function Login() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <h2 className="text-2xl font-bold mb-4">Create Account</h2>
+    <div className="flex flex-col items-center justify-center h-screen ">
+
+      <div className="flex">
+        <Image src={logo} alt="logo" className="h-11 w-11"/>
+      <h2 className="text-2xl font-bold mb-4">Fotoowl Messenger</h2>
+      </div>
       <form
         onSubmit={handleLogin}
         className="bg-white p-6 rounded shadow-md w-80"
@@ -86,7 +92,7 @@ export default function Login() {
         />
         <button
           type="submit"
-          className="bg-blue-500 text-white p-2 rounded w-full"
+          className="bg-green-500 text-white p-2 rounded w-full"
         >
           Login
         </button>
